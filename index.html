@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">    <!--Html page for redirect url-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a id="anchor1" href="">Click here</a>  <!--on click, anchor sends http request to get access token-->
+</body>
+<script>
+ <!-- get query parameters from browser's url bar-->
+let params = (new URL(document.location)).searchParams;
+
+<!-- get code query parameter which contains auth code-->
+let code_val = params.get("code");
+
+<!-- set href attribute of anchor to send http request that maps to get_token function -->
+document.getElementById("anchor1").href="http://localhost:8080/get_token/"+code_val;
+</script>
+</html>
